@@ -1,17 +1,17 @@
 # Site settings
-title:          Tale
-description:    "Minimal Jekyll theme for storytellers"
-baseurl:        "/tale"
-url:            "https://chesterhow.github.io"
+title:          MadaoCN
+description:    "Just for fun"
+baseurl:        ""
+url:            "https://madaocn.github.io"
 
 # Google Analytics
 google_analytics: UA—XXXXXXXX-X
 
 # Author
 author:
-  name:         Chester How
-  url:          https://chester.how
-  email:        chesterhow@gmail.com
+  name:         MadaoCN
+  url:          https://madaocn.github.io
+  email:        lxsasmadao@gmail.com
 
 # Build settings
 markdown:       kramdown
