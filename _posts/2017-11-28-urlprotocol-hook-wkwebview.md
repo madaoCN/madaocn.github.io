@@ -10,7 +10,9 @@ comments: true
 > 有些时候我们难免需要和 __WKWebView__ 做一些交互，虽然__WKWebView__性能高，但是坑还是不少的
 
 例如：我们在__UIWebview__ ,可以通过如下方式获取js上下文，但是在__WKWebView__是会报错的
-```swift
+
+>
+```objc
 let context = webView.valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as! JSContext
 context.evaluateScript(theScript)
 ```

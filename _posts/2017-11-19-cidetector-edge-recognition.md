@@ -9,6 +9,8 @@ comments: true
 ---
 
 `CoreImage `下`CIDetector.h`自带了四种识别功能
+
+>
 ```swift
 / * 人脸识别 */
 CORE_IMAGE_EXPORT NSString* const CIDetectorTypeFace NS_AVAILABLE(10_7, 5_0);
@@ -32,7 +34,8 @@ CORE_IMAGE_EXPORT NSString* const CIDetectorTypeText NS_AVAILABLE(10_11, 9_0);
 
 ### 部分代码：
 * 初始化一个高精度的识别器
-```swift
+
+```objc
 // 高精度边缘识别器
 - (CIDetector *)highAccuracyRectangleDetector
 {
@@ -47,7 +50,8 @@ CORE_IMAGE_EXPORT NSString* const CIDetectorTypeText NS_AVAILABLE(10_11, 9_0);
 ```
 
 * 调用照相机捕获摄像头图像
-```swift
+
+```objc
 NSArray *possibleDevices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     AVCaptureDevice *device = [possibleDevices firstObject];
     if (!device) return;
@@ -78,7 +82,8 @@ NSArray *possibleDevices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVide
 ```
 
 * 还需要有个显示已捕获图像的容器
-```swift
+
+```objc
  self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     GLKView *view = [[GLKView alloc] initWithFrame:self.bounds];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -97,7 +102,8 @@ NSArray *possibleDevices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVide
 ```
 
 * 遵循`AVCaptureVideoDataOutputSampleBufferDelegate`代理，捕获到图像之后，会调用以下方法
-```swift
+
+```objc
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 ```
 调用`CIDetector `进行识别，并且获取最大不规则四边形
@@ -112,7 +118,8 @@ NSArray <CIFeature *>*features = [[self highAccuracyRectangleDetector] featuresI
 ```
 
 * 识别到边缘之后使用`CAShapeLayer`将边缘绘制并显示
-```swift
+
+```objc
 // 绘制边缘检测图层
 - (void)drawBorderDetectRectWithImageRect:(CGRect)imageRect topLeft:(CGPoint)topLeft topRight:(CGPoint)topRight bottomLeft:(CGPoint)bottomLeft bottomRight:(CGPoint)bottomRight
 {
@@ -152,7 +159,8 @@ NSArray <CIFeature *>*features = [[self highAccuracyRectangleDetector] featuresI
 即可显示出实时识别的效果了
 
 * 最后拍照之后的裁剪，使用该滤镜将识别出的不规则四边形转换成矩形，即可转换成正正方方的矩形了
-```swift
+
+```objc
 /// 将任意四边形转换成长方形
 - (CIImage *)correctPerspectiveForImage:(CIImage *)image withFeatures:(CIRectangleFeature *)rectangleFeature
 {
