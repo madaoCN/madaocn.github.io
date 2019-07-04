@@ -13,7 +13,8 @@ comments: true
 
 * 基础款
 
-```
+
+```objc
 #import "Singleton.h"
 
 @implementation Singleton
@@ -34,7 +35,7 @@ comments: true
 
 * 多线程款
 
-```
+```objc
 + (Singleton *)sharedInstance
 {
     static Singleton *sharedSingleton = nil;
@@ -106,7 +107,7 @@ comments: true
 
 
 **alloc**:
-```
+```objc
 + (id)alloc {
     return _objc_rootAlloc(self);
 }
@@ -154,7 +155,7 @@ callAlloc(Class cls, bool checkNil, bool allocWithZone=false)
 }
 ```
 我们注意到官方源码`_objc_rootAlloc `之上的注释
-```
+```objc
 // Base class implementation of +alloc. cls is not nil.
 // Calls [cls allocWithZone:nil].
 ```
@@ -164,7 +165,7 @@ callAlloc(Class cls, bool checkNil, bool allocWithZone=false)
 显然，大部分情况下`alloc`直接调用的就是`allocWithZone `方法
 
 ** allocWithZone**:
-```
+```objc
 + (id)allocWithZone:(struct _NSZone *)zone {
     return _objc_rootAllocWithZone(self, (malloc_zone_t *)zone);
 }
@@ -198,7 +199,7 @@ allocWithZone 就比较简单了，在objc2下直接调用的是`class_createIns
 ** class_createInstance **
 这个方法处于`<objc/runtime.h>`
 
-```
+```objc
 /* Instantiating Classes */
 
 /** 
@@ -219,7 +220,7 @@ OBJC_EXPORT id class_createInstance(Class cls, size_t extraBytes)
 然而`OBJC_ARC_UNAVAILABLE ` arc下不可用，不过没关系`-fno-objc-arc`来支持混编。
 所以，最后的最后，支持子类化的单例就写好了
 
-```
+```objc
 + (Singleton *)sharedInstance
 {
     static Singleton *sharedSingleton = nil;
