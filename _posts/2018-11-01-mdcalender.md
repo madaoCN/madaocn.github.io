@@ -12,7 +12,7 @@ comments: true
 
 a simple calendar demo as following
 
-![calendar.gif](https://upload-images.jianshu.io/upload_images/1749699-0958b638a2ae294b.gif?imageMogr2/auto-orient/strip)
+![calendar.gif](https://github.com/madaoCN/MDCalendar/raw/master/calendar.gif)
 
 using collectionview to realize the calendar
 ```swift
