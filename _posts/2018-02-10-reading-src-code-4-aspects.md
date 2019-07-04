@@ -8,6 +8,7 @@ tags: [源码阅读]
 comments: true
 ---
 
+>>
 > ##### __前言__
 __AOP(Aspect-oriented programming)__ 也称之为 __“面向切面编程”__, 是一种通过[预编译](https://baike.baidu.com/item/%E9%A2%84%E7%BC%96%E8%AF%91)方式和运行期动态代理实现程序功能的统一维护的一种技术。简单来说可以做到 __业务隔离__ ，__解耦__ 等等效果。__AOP__ 技术在__JAVA__ 的 __Spring__ 框架中已经提供了非常全面成熟的解决方案。然而 __iOS__ 等移动端在这方面的运用并不是很多，但是不妨碍它涌现出非常出色的三方库，比如，我们接下来要说的三方库 [Aspects](https://github.com/steipete/Aspects) .
 
