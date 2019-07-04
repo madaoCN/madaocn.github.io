@@ -4,4 +4,8 @@ title: 关于
 permalink: /about/
 ---
 
-这是一个关于页面，请编辑about.md以介绍你的博客。
+A personal blog for recording something interesting or not 🙂🙂
+
+##### 简书 : `https://www.jianshu.com/u/00be556128d1`
+
+##### 掘金 : `https://juejin.im/user/59c07d6f6fb9a00a4c26ff7e`
